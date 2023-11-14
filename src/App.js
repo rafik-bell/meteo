@@ -36,8 +36,11 @@ function App() {
             <p>{data.name}</p>
           </div>
           <div className="temp">
+          {!data.main ? <h2>Welcom to Meteo app</h2> : null}
+          {!data.main ? <h2 className='wlc'> Please enter Location</h2> : null}
+
             {data.main ? <h1>{((data.main.temp.toFixed()-32)*5/9).toFixed()}°C</h1> : null}
-            <img className='imagew' src={url1 }></img>
+            {data.main ?<img className='imagew' src={url1 }></img> : null}
           </div>
           <div className="description">
             {data.weather ? <p>{data.weather[0].description}</p> : null}
